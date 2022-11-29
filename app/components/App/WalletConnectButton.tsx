@@ -44,3 +44,14 @@ export const WalletConnectButton = () => {
             Connect Wallet with Martian
         </button>
 }
+
+export const SolidWalletConnectButton = () => {
+    const {connect} = useAptos()
+
+    return <button
+        className={"py-3 bg-primary-500 rounded-md text-white hover:bg-primary-700 duration-300 w-full"}
+        onClick={connect}
+    >
+        Connect Wallet with Martian
+    </button>
+}

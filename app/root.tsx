@@ -37,7 +37,7 @@ export default function App() {
         <ScrollRestoration/>
         <Scripts/>
         <LiveReload/>
-        <ToastContainer/>
+        <ToastContainer position={"bottom-right"}/>
         </body>
         </html>
     )

@@ -1,10 +1,15 @@
 import {useEffect, useReducer} from "react"
 import {AptosContext, aptosDefaultState, aptosReducer} from "~/lib/context"
-import {WalletConnectButton} from "~/components/App/WalletConnectButton"
+import {SolidWalletConnectButton, WalletConnectButton} from "~/components/App/WalletConnectButton"
 import {useAptos} from "~/hooks/useAptos"
+import {useAccountCount} from "~/hooks/useAccountCount";
+import {NotConnectedContent} from "~/components/App/content/NotConnectedContent";
+import {AccountDetailView} from "~/components/App/content/AccountDetailView";
+import {MachikadoAccountAddress} from "~/lib/aptos";
+import {AdminView} from "~/components/App/content/AdminView";
 
 function Header() {
-    return <header className="relative pb-11 lg:pt-6">
+    return <header className="relative mb-20 lg:pt-6">
         <div className="flex flex-wrap items-center justify-center sm:justify-between lg:flex-nowrap mx-auto max-w-full px-4 sm:px-6">
             <div className="mt-10 lg:mt-0 lg:grow lg:basis-0">
             </div>
@@ -31,8 +36,15 @@ export default function App() {
 
     return <AptosContext.Provider value={{state, dispatch}}>
         <Header />
-        <div className={"container mx-auto"}>
-
+        <div className={"container mx-auto justify-center items-center"}>
+            {MachikadoAccountAddress === state.address
+                ? <AdminView />
+                : state.connected
+                    ? <>
+                        <AccountDetailView />
+                    </>
+                    : <NotConnectedContent />
+            }
         </div>
     </AptosContext.Provider>
 }

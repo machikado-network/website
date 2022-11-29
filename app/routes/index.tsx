@@ -1,4 +1,5 @@
 import {Button} from "~/components/Button"
+import {useAccountCount} from "~/hooks/useAccountCount";
 
 function Header() {
     return <header className="relative z-50 pb-11 lg:pt-11">
@@ -23,6 +24,8 @@ function Header() {
 
 
 function Hero() {
+    const count = useAccountCount()
+
     return (
         <div className="relative pt-10 pb-20 sm:py-24">
             <div className="absolute inset-x-0 -top-48 -bottom-14 overflow-hidden bg-primary-50">
@@ -52,7 +55,7 @@ function Hero() {
                     <dl className="mt-10 grid grid-cols-2 gap-y-6 gap-x-10 sm:mt-16 sm:gap-y-10 sm:gap-x-16 sm:text-center lg:auto-cols-auto lg:grid-flow-col lg:grid-cols-none lg:justify-start lg:text-left">
                         {[
                             ['Nodes', '5'],
-                            ['People', '12'],
+                            ['People', count.toString()],
                             ['Location', 'World\'s edge'],
                         ].map(([name, value]) => (
                             <div key={name}>

@@ -1,14 +1,15 @@
 import type { Dispatch} from "react"
 import {createContext} from "react"
+ import type {WalletAddress} from "~/lib/aptos/browser"
 
 export type AptosContextState = {
-    address: string
+    address: WalletAddress
     chainId: number
     connected: boolean
 }
 
 export const aptosDefaultState = {
-    address: "",
+    address: "0x" as WalletAddress,
     chainId: -1,
     connected: false
 }

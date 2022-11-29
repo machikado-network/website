@@ -14,7 +14,7 @@ export declare interface AptosBrowserExtension {
 
 type Transaction = string
 type SignedTransaction = string
-type WalletAddress = `0x${string}`
+export type WalletAddress = `0x${string}`
 
 export type WalletConnectResponse = {
     address: WalletAddress

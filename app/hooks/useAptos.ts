@@ -50,10 +50,11 @@ export function useAptos() {
         try {
             await window.martian?.disconnect()
             dispatch({
-                address: "",
+                address: "0x",
                 chainId: -1,
                 connected: false,
             })
+            window.location.reload()
         } catch {}
     }, [dispatch, state.connected])
 
