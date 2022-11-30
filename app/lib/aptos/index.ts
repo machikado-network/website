@@ -87,3 +87,17 @@ export async function createNode(signer: WalletAddress, name: string, publicKey:
         return null
     }
 }
+
+export async function updateNodeInet(signer: WalletAddress, name: string, hostname: string, port: number) {
+    const txn: WalletTransactionPayload = {
+        function: `${MachikadoAccountAddress}::MachikadoNetwork::update_node_inet_host`,
+        type_arguments: [],
+        arguments: [MachikadoAccountAddress, toHex(name), toHex(hostname), port.toString()]
+    }
+    try {
+        return await window.martian!.generateSignAndSubmitTransaction(signer, txn)
+    } catch (e) {
+        console.log(e)
+        return null
+    }
+}
