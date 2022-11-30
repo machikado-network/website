@@ -12,5 +12,5 @@ const fetcher = async () => {
 export function useAccountCount() {
     const {data, error} = useSWRImmutable<AccountStore>("/account/length", fetcher)
 
-    return (typeof data === "undefined" || typeof error !== "undefined") ? -1 : data.addresses.length
+    return (typeof data === "undefined" || typeof error !== "undefined") ? 0 : data.addresses.length
 }
