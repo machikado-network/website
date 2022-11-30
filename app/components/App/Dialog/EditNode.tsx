@@ -64,6 +64,7 @@ const EditNodeRaw = ({open, setOpen, node}: DialogProps & {node: NodeWithUser}) 
                         required: true,
                         minLength: 3,
                         maxLength: 100,
+                        value: fromHex(node.inet_hostname.vec[0] ?? "")
                     })}
                     className="py-2 px-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
                     placeholder="syamimomo.d.mchkd.net"
@@ -80,7 +81,8 @@ const EditNodeRaw = ({open, setOpen, node}: DialogProps & {node: NodeWithUser}) 
                         required: false,
                         min: 1,
                         max: 65535,
-                        pattern: /^[0-9]+$/g
+                        pattern: /^[0-9]+$/g,
+                        value: (node.inet_port.vec[0] ?? 1).toString()
                     })}
                     className="py-2 px-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
                     placeholder="655"
