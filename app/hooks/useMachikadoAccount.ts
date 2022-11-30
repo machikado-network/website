@@ -5,13 +5,15 @@ import useSWRImmutable from "swr/immutable"
 const fetcher = async (url: string, address: string) => {
     const resource = await client.getAccountResource(MachikadoAccountAddress, `${MachikadoAccountAddress}::MachikadoAccount::AccountStore`)
     const handle = (resource.data as unknown as AccountStore).accounts.handle
-    return await client.getTableItem(handle, {
+    const result = await client.getTableItem(handle, {
         key: {
             owner: address
         },
         key_type: `${MachikadoAccountAddress}::MachikadoAccount::AccountKey`,
         value_type: `${MachikadoAccountAddress}::MachikadoAccount::Account`
     })
+    console.log(result)
+    return result
 }
 
 export function useMachikadoAccount(address?: string) {

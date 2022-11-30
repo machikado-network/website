@@ -1,4 +1,5 @@
 import type {ReactNode} from "react"
+import {memo} from "react";
 
 export type ButtonProps = {
     href?: string
@@ -19,7 +20,7 @@ export const Button = (props: ButtonProps) => {
 
 const largeButtonClassName = "py-3 bg-primary-500 rounded-md text-white hover:bg-primary-700 duration-300 w-full"
 
-export const LargeButton = (props: ButtonProps) => {
+const LargeButtonRaw = (props: ButtonProps) => {
     return <>
         {typeof props.href === "undefined"
             ? <button onClick={props.onClick} className={largeButtonClassName}>{props.children}</button>
@@ -27,3 +28,5 @@ export const LargeButton = (props: ButtonProps) => {
         }
     </>
 }
+
+export const LargeButton = memo(LargeButtonRaw)

@@ -4,7 +4,7 @@ import {SolidWalletConnectButton, WalletConnectButton} from "~/components/App/Wa
 import {useAptos} from "~/hooks/useAptos"
 import {useAccountCount} from "~/hooks/useAccountCount";
 import {NotConnectedContent} from "~/components/App/content/NotConnectedContent";
-import {AccountDetailView} from "~/components/App/content/AccountDetailView";
+import {MachikadoAccountDetailView} from "~/components/App/content/MachikadoAccountDetailView";
 import {MachikadoAccountAddress} from "~/lib/aptos";
 import {AdminView} from "~/components/App/content/AdminView";
 
@@ -41,7 +41,7 @@ export default function App() {
                 ? <AdminView />
                 : state.connected
                     ? <>
-                        <AccountDetailView />
+                        <MachikadoAccountDetailView />
                     </>
                     : <NotConnectedContent />
             }

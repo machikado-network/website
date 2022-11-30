@@ -28,3 +28,27 @@ export async function sendInvite(signer: WalletAddress, inviteTargetAddress: Wal
         return null
     }
 }
+
+const toHex = (s: string) => {
+    const encoded = new TextEncoder().encode(s)
+    return Array.from(encoded, (i) => i.toString(16).padStart(2, "0")).join("")
+}
+
+export const fromHex = (s: string) => {
+    s = s.replace("0x", "")
+    const chars = s.match(/.{2}/g) ?? []
+    return chars.map(x => String.fromCharCode(parseInt(x, 16))).join("")
+}
+
+export async function createMachikadoAccount(signer: WalletAddress, name: string) {
+    const txn: WalletTransactionPayload = {
+        function: `${MachikadoAccountAddress}::MachikadoNetwork::create_account`,
+        type_arguments: [],
+        arguments: [MachikadoAccountAddress, toHex(name)]
+    }
+    try {
+        return await window.martian!.generateSignAndSubmitTransaction(signer, txn)
+    } catch (e) {
+        return null
+    }
+}

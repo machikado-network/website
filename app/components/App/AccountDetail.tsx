@@ -1,6 +1,8 @@
 import {Fragment, memo} from "react"
 import { Transition, Dialog } from "@headlessui/react"
 import {useAptos} from "~/hooks/useAptos"
+import Container from "~/components/Container";
+import {MachikadoAccountAddress} from "~/lib/aptos";
 
 const AccountDetailContent = () => {
     const {account, disconnect} = useAptos()
@@ -9,6 +11,11 @@ const AccountDetailContent = () => {
 
     return <>
         <div className={"text-center font-bold mb-6"}>Hello, {account.address.substring(0, 6)}...{account.address.substring(account.address.length-7, account.address.length)}</div>
+        <Container.Button href={`https://explorer.aptoslabs.com/account/${account.address}`}>アカウントをAptos Explorerで見る</Container.Button>
+        <Container.Button href={`https://explorer.aptoslabs.com/account/${MachikadoAccountAddress}`}>まちカドネットワークアカウントをAptos Explorerで見る</Container.Button>
+
+        <div className={"h-12"}/>
+
         <button
             className={"w-full py-3 bg-gray-400 font-bold text-xl hover:bg-primary-500 rounded-md duration-300"}
             onClick={disconnect}

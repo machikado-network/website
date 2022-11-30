@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         momo: "#f088a8",
         primary: {
+          10: "#fff6f8",
           50: "#FDE9EF",
           100: "#F9C8D7",
           200: "#F7B8CB",
