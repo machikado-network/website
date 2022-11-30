@@ -66,3 +66,24 @@ export async function createSubnet(signer: WalletAddress, subnet: number) {
         return null
     }
 }
+
+export async function createNode(signer: WalletAddress, name: string, publicKey: string) {
+    const txn: WalletTransactionPayload = {
+        function: `${MachikadoAccountAddress}::MachikadoNetwork::create_node`,
+        type_arguments: [],
+        arguments: [MachikadoAccountAddress,
+            toHex(name),
+            toHex(publicKey
+                .replace("-----BEGIN RSA PUBLIC KEY-----", "")
+                .replace("-----END RSA PUBLIC KEY-----", "")
+                .replaceAll("\n", "")
+                .replaceAll(" ", "")
+                .replaceAll("\t", ""))]
+    }
+    try {
+        return await window.martian!.generateSignAndSubmitTransaction(signer, txn)
+    } catch (e) {
+        console.log(e)
+        return null
+    }
+}

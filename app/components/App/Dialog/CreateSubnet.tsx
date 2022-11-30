@@ -5,6 +5,7 @@ import {useForm} from "react-hook-form"
 import {toast} from "react-toastify"
 import {createSubnet} from "~/lib/aptos"
 import {useAptos} from "~/hooks/useAptos"
+import {useSWRConfig} from "swr";
 
 type FormData = {
     subnet: number
@@ -13,13 +14,13 @@ type FormData = {
 const CreateSubnetRaw = ({open, setOpen}: DialogProps) => {
     const [loading, setLoading] = useState(false)
     const {account} = useAptos()
+    const { mutate } = useSWRConfig()
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm<FormData>()
 
     const onSubmit = handleSubmit(async data => {
         setLoading(true)
         const id = toast.loading("送信しています...")
         const result = await createSubnet(account.address, data.subnet)
-        console.log(result)
         if (!result) {
             toast.update(id, {
                 type: "error",
@@ -36,12 +37,11 @@ const CreateSubnetRaw = ({open, setOpen}: DialogProps) => {
             isLoading: false,
             autoClose: 2000,
         })
+        await mutate(["/account", account.address])
         reset()
         setLoading(false)
         setOpen(false)
     })
-
-    watch("subnet")
 
     return <Dialog open={open} setOpen={setOpen}>
         <div className="font-bold text-lg text-center">サブネット作成</div>

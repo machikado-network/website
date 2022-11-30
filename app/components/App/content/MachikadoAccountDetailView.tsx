@@ -5,12 +5,15 @@ import {fromHex} from "~/lib/aptos"
 import { NotHavingMachikadoAccountView } from "./NotHavingMachikadoAccountView"
 import {useState} from "react"
 import {CreateSubnet} from "~/components/App/Dialog/CreateSubnet"
+import {CreateNode} from "~/components/App/Dialog/CreateNode";
+import {NodeListView} from "~/components/App/content/NodeListView";
 
 
 const MachikadoAccountDetail = () => {
     const {account} = useAptos()
     const {account: machikadoAccount} = useMachikadoAccount(account.connected ? account.address : undefined)
     const [isOpenCreateSubnet, setIsOpenCreateSubnet] = useState(false)
+    const [isOpenCreateNode, setIsOpenCreateNode] = useState(false)
 
     return <>
         <div className={"mb-6 text-2xl font-bold text-center"}>ようこそ、{fromHex(machikadoAccount?.name ?? "")}さん</div>
@@ -18,7 +21,8 @@ const MachikadoAccountDetail = () => {
             <Container half>
                 <Container.Title>ノード数</Container.Title>
                 <div className={"font-bold text-4xl text-center my-6"}>{machikadoAccount?.nodes.length ?? 0}</div>
-                <Container.Button>ノード追加</Container.Button>
+                <CreateNode open={isOpenCreateNode} setOpen={setIsOpenCreateNode} />
+                <Container.Button onClick={() => setIsOpenCreateNode(true)}>ノード追加</Container.Button>
             </Container>
             <Container half>
                 <Container.Title>サブネット</Container.Title>
@@ -30,12 +34,10 @@ const MachikadoAccountDetail = () => {
                 }
             </Container>
         </Container.Wrapper>
-        {(machikadoAccount?.nodes.length ?? 0) > 0
-            ? <Container>
-                <Container.Title>ノード一覧</Container.Title>
-            </Container>
-            : null
-        }
+        <Container>
+            <Container.Title>ノード一覧</Container.Title>
+            <NodeListView />
+        </Container>
         <Container>
             <Container.Title>まちカドアカウント情報</Container.Title>
             <div className="border-t border-gray-200 px-4 py-5 sm:p-0">

@@ -31,8 +31,6 @@ const CreateAccountRaw = ({open, setOpen}: DialogProps) => {
         }
     })
 
-    watch("name")
-
     return <Dialog open={open} setOpen={setOpen} >
         <div className="font-bold text-lg text-center">まちカドアカウント作成</div>
         <div className={"text-gray-600 text-center"}>利用したいアカウント名を入力し、アカウントを作成してください。</div>
