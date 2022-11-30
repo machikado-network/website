@@ -1,9 +1,10 @@
 import type {AccountStore} from "~/lib/aptos/MachikadoNetwork"
-import {client, MachikadoAccountAddress} from "~/lib/aptos"
+import {getChainId, getClient, MachikadoAccountAddress} from "~/lib/aptos"
 import useSWRImmutable from "swr/immutable"
 
 
 const fetcher = async () => {
+    const client = getClient(await getChainId())
     const resource = await client.getAccountResource(MachikadoAccountAddress, `${MachikadoAccountAddress}::MachikadoAccount::AccountStore`)
     return (resource.data as unknown as AccountStore)
 }

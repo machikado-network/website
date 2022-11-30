@@ -1,8 +1,9 @@
-import {client, MachikadoAccountAddress} from "~/lib/aptos"
+import {getChainId, getClient, MachikadoAccountAddress} from "~/lib/aptos"
 import type {AccountStore, Invite} from "~/lib/aptos/MachikadoNetwork"
 import useSWRImmutable from "swr/immutable"
 
 const fetcher = async (url: string, address: string) => {
+    const client = getClient(await getChainId())
     const resource = await client.getAccountResource(MachikadoAccountAddress, `${MachikadoAccountAddress}::MachikadoAccount::AccountStore`)
     const handle = (resource.data as unknown as AccountStore).invites.handle
     return await client.getTableItem(handle, {
