@@ -47,7 +47,7 @@ const CreateAccountRaw = ({open, setOpen}: DialogProps) => {
                         pattern: /^[a-z0-9]+$/i
                     })}
                     className="py-2 px-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
-                    placeholder="0x1ddebc78b10a4a2a4cb55cd73fd80805513bf3b224caaf8fb93e659d9ec9fd29"
+                    placeholder="sizumita"
                 />
                 {!errors.name ? null : <p className={"text-red-500 text-sm"}>名前は3文字以上32文字以下で、0-9a-zの文字にしてください。</p>}
             </div>

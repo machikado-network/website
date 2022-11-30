@@ -26,7 +26,7 @@ const MachikadoAccountDetail = () => {
             </Container>
             <Container half>
                 <Container.Title>サブネット</Container.Title>
-                <div className={"font-bold text-4xl text-center my-6"}>::{machikadoAccount?.subnets[0].id ?? "なし"}</div>
+                <div className={"font-bold text-4xl text-center my-6"}>::{machikadoAccount?.subnets[0]?.id ?? "なし"}</div>
                 <CreateSubnet open={isOpenCreateSubnet} setOpen={setIsOpenCreateSubnet} />
                 {!machikadoAccount?.subnets[0]
                     ? <Container.Button onClick={() => setIsOpenCreateSubnet(true)}>サブネット作成</Container.Button>
