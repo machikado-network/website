@@ -3,11 +3,14 @@ import {useAptos} from "~/hooks/useAptos"
 import Container from "~/components/Container"
 import {fromHex} from "~/lib/aptos"
 import { NotHavingMachikadoAccountView } from "./NotHavingMachikadoAccountView"
+import {useState} from "react";
+import {CreateSubnet} from "~/components/App/Dialog/CreateSubnet";
 
 
 const MachikadoAccountDetail = () => {
     const {account} = useAptos()
     const {account: machikadoAccount} = useMachikadoAccount(account.connected ? account.address : undefined)
+    const [isOpenCreateSubnet, setIsOpenCreateSubnet] = useState(false)
 
     return <>
         <div className={"mb-6 text-2xl font-bold text-center"}>ようこそ、{fromHex(machikadoAccount?.name ?? "")}さん</div>
@@ -19,8 +22,12 @@ const MachikadoAccountDetail = () => {
             </Container>
             <Container half>
                 <Container.Title>サブネット</Container.Title>
-                <div className={"font-bold text-4xl text-center my-6"}>{machikadoAccount?.subnets[0] ?? "なし"}</div>
-                {machikadoAccount?.subnets[0] ?? <Container.Button>サブネット作成</Container.Button>}
+                <div className={"font-bold text-4xl text-center my-6"}>::{machikadoAccount?.subnets[0].id ?? "なし"}</div>
+                <CreateSubnet open={isOpenCreateSubnet} setOpen={setIsOpenCreateSubnet} />
+                {!machikadoAccount?.subnets[0]
+                    ? <Container.Button onClick={() => setIsOpenCreateSubnet(true)}>サブネット作成</Container.Button>
+                    : <Container.Button disabled>サブネット所有済み</Container.Button>
+                }
             </Container>
         </Container.Wrapper>
         {(machikadoAccount?.nodes.length ?? 0) > 0

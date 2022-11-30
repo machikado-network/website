@@ -26,10 +26,10 @@ const Title = ({children}: {children: ReactNode}) =>
 
 const className = "my-1 block w-full py-2 font-bold text-white bg-primary-600 hover:bg-primary-700 duration-300 text-center rounded-md"
 
-const Button = ({href, onClick, children}: {href?: string, onClick?: () => void, children: ReactNode}) => {
+const Button = ({href, onClick, children, disabled}: {href?: string, onClick?: () => void, children: ReactNode, disabled?: boolean}) => {
     return href
-        ? <a className={className} href={href}>{children}</a>
-        : <button className={className} onClick={onClick}>{children}</button>
+        ? <a className={className} href={href} aria-disabled={disabled}>{children}</a>
+        : <button className={className} onClick={onClick} disabled={disabled}>{children}</button>
 }
 
 

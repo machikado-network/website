@@ -23,10 +23,10 @@ const CreateAccountRaw = ({open, setOpen}: DialogProps) => {
         const id = toast.loading("送信しています...")
         try {
             await createMachikadoAccount(account.address, data.name)
-            toast.update(id, {type: toast.TYPE.ERROR, render: "アカウントの作成に成功しました。"})
+            toast.success("アカウントの作成に成功しました。", {updateId: id})
             await mutate(["/account", account.address])
         } catch (e) {
-            toast.update(id, {type: toast.TYPE.ERROR, render: "アカウントの作成に失敗しました。入力した内容を確認してください。"})
+            toast.error("アカウントの作成に失敗しました。入力した内容を確認してください。", {updateId: id})
             setLoading(false)
         }
     })

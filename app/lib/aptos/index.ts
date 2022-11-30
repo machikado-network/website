@@ -52,3 +52,17 @@ export async function createMachikadoAccount(signer: WalletAddress, name: string
         return null
     }
 }
+
+export async function createSubnet(signer: WalletAddress, subnet: number) {
+    const txn: WalletTransactionPayload = {
+        function: `${MachikadoAccountAddress}::MachikadoNetwork::create_subnet`,
+        type_arguments: [],
+        arguments: [MachikadoAccountAddress, subnet]
+    }
+    try {
+        return await window.martian!.generateSignAndSubmitTransaction(signer, txn)
+    } catch (e) {
+        console.log(e)
+        return null
+    }
+}
