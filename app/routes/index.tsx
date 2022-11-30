@@ -1,5 +1,8 @@
 import {Button} from "~/components/Button"
 import {useAccountCount} from "~/hooks/useAccountCount"
+import {useNodes} from "~/hooks/useNodes"
+
+const ScrapboxUrl = "https://scrapbox.io/machikado-network/%E3%81%BE%E3%81%A1%E3%82%AB%E3%83%89%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF"
 
 function Header() {
     return <header className="relative z-50 pb-11 lg:pt-11">
@@ -15,7 +18,7 @@ function Header() {
             </div>
             <div className="hidden sm:mt-10 sm:flex lg:mt-0 lg:grow lg:basis-0 lg:justify-end">
                 <Button
-                    href="https://scrapbox.io/machikado-network/%E3%81%BE%E3%81%A1%E3%82%AB%E3%83%89%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF">詳しく知る</Button>
+                    href={ScrapboxUrl}>詳しく知る</Button>
                 <Button href="/app">住人の方はこちら</Button>
             </div>
         </div>
@@ -25,20 +28,21 @@ function Header() {
 
 function Hero() {
     const count = useAccountCount()
+    const nodes = useNodes()
 
     return (
         <div className="relative pt-10 pb-20 sm:py-24">
             <div className="absolute inset-x-0 -top-48 -bottom-14 overflow-hidden bg-primary-50">
-                <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white"/>
-                <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white"/>
+                <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-gray-50"/>
+                <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-gray-50"/>
             </div>
             <div className="relative mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-3xl lg:max-w-4xl lg:px-12">
-                    <h1 className="font-display text-5xl font-bold tracking-tighter text-primary-600 sm:text-7xl">
+                    <h1 className="font-display text-3xl font-bold tracking-tighter text-primary-600 sm:text-6xl">
                         <span className="sr-only">まちカドネットワーク - </span>
-                        50人くらいでやってる<br className={"hidden md:block"}/>インターネットを作ろう。
+                        50人くらいでやってる<br className={""}/>インターネットを作ろう。
                     </h1>
-                    <div className="mt-6 space-y-6 font-display text-2xl tracking-tight text-primary-900">
+                    <div className="mt-6 space-y-6 font-display sm:text-lg tracking-tight text-primary-900">
                         <p>
                             まちカドネットワークは、インターネットから完全に分離されたちいさな「第二のインターネット」をつくるプロジェクトです。
                         </p>
@@ -54,7 +58,7 @@ function Hero() {
                     </div>
                     <dl className="mt-10 grid grid-cols-2 gap-y-6 gap-x-10 sm:mt-16 sm:gap-y-10 sm:gap-x-16 sm:text-center lg:auto-cols-auto lg:grid-flow-col lg:grid-cols-none lg:justify-start lg:text-left">
                         {[
-                            ['Nodes', '5'],
+                            ['Nodes', nodes.data.length.toString()],
                             ['People', count.toString()],
                             ['Location', 'World\'s edge'],
                         ].map(([name, value]) => (
@@ -66,7 +70,7 @@ function Hero() {
                             </div>
                         ))}
                     </dl>
-                    <a href="https://docs.machikado.network" className="mt-10 w-full sm:hidden">
+                    <a href={ScrapboxUrl} className={"sm:hidden block text-center mt-10 py-3 bg-primary-500 rounded-md text-white hover:bg-primary-700 duration-300 w-full"}>
                         詳しく知る
                     </a>
                 </div>

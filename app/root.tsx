@@ -23,6 +23,7 @@ export function links() {
 export const meta: MetaFunction = () => ({
     charset: "utf-8",
     title: "まちカドネットワーク 公式ウェブサイト",
+    description: "まちカドネットワークは、インターネットから完全に分離されたちいさな「第二のインターネット」をつくるプロジェクトです。",
     viewport: "width=device-width,initial-scale=1",
     "og:title": "Machikado Network",
 })
