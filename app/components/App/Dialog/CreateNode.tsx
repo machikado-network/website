@@ -1,10 +1,11 @@
-import {Dialog, DialogProps} from "~/components/App/Dialog/index";
-import {memo, useState} from "react";
-import {useAptos} from "~/hooks/useAptos";
-import {useSWRConfig} from "swr";
-import {useForm} from "react-hook-form";
-import {toast} from "react-toastify";
-import {createNode} from "~/lib/aptos";
+import type { DialogProps} from "~/components/App/Dialog/index"
+import {Dialog} from "~/components/App/Dialog/index"
+import {memo, useState} from "react"
+import {useAptos} from "~/hooks/useAptos"
+import {useSWRConfig} from "swr"
+import {useForm} from "react-hook-form"
+import {toast} from "react-toastify"
+import {createNode} from "~/lib/aptos"
 
 const PLACEHOLDER = `-----BEGIN RSA PUBLIC KEY-----
 MIIBCgKCAQEArAlqLBAronTRJQPUqtnLo/yZqxwJZiel5XEEdZPZYWtpxZvsm7p9
@@ -24,7 +25,7 @@ const CreateNodeRaw = ({open, setOpen}: DialogProps) => {
     const [loading, setLoading] = useState(false)
     const {account} = useAptos()
     const { mutate } = useSWRConfig()
-    const { register, handleSubmit, watch, formState: { errors }, reset } = useForm<FormData>()
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>()
 
     const onSubmit = handleSubmit(async data => {
         setLoading(true)

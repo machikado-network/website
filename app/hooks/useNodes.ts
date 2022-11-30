@@ -1,7 +1,7 @@
-import {client, MachikadoAccountAddress} from "~/lib/aptos";
-import type {AccountStore, MachikadoAccount, TincNode} from "~/lib/aptos/MachikadoNetwork";
-import useSWRImmutable from "swr/immutable";
-import type {WalletAddress} from "~/lib/aptos/browser";
+import {client, MachikadoAccountAddress} from "~/lib/aptos"
+import type {AccountStore, MachikadoAccount, TincNode} from "~/lib/aptos/MachikadoNetwork"
+import useSWRImmutable from "swr/immutable"
+import type {WalletAddress} from "~/lib/aptos/browser"
 
 export type NodeWithUser = TincNode & {
     address: WalletAddress

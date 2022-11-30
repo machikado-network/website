@@ -1,6 +1,6 @@
-import {memo, useState} from "react";
-import type {NodeWithUser} from "~/hooks/useNodes";
-import {EditNode} from "~/components/App/Dialog/EditNode";
+import {memo, useState} from "react"
+import type {NodeWithUser} from "~/hooks/useNodes"
+import {EditNode} from "~/components/App/Dialog/EditNode"
 
 interface NodeEditViewProps {
     node: NodeWithUser

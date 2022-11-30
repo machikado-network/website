@@ -1,12 +1,12 @@
-import {memo, useState} from "react";
-import {useAptos} from "~/hooks/useAptos";
-import {useSWRConfig} from "swr";
-import {useForm} from "react-hook-form";
-import type { DialogProps} from "~/components/App/Dialog/index";
-import {Dialog} from "~/components/App/Dialog/index";
-import {toast} from "react-toastify";
-import {fromHex, updateNodeInet} from "~/lib/aptos";
-import type {NodeWithUser} from "~/hooks/useNodes";
+import {memo, useState} from "react"
+import {useAptos} from "~/hooks/useAptos"
+import {useSWRConfig} from "swr"
+import {useForm} from "react-hook-form"
+import type { DialogProps} from "~/components/App/Dialog/index"
+import {Dialog} from "~/components/App/Dialog/index"
+import {toast} from "react-toastify"
+import {fromHex, updateNodeInet} from "~/lib/aptos"
+import type {NodeWithUser} from "~/hooks/useNodes"
 
 type FormData = {
     inetHost: string

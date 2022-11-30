@@ -1,7 +1,7 @@
 import {SolidWalletConnectButton} from "~/components/App/WalletConnectButton"
 import {useAccountCount} from "~/hooks/useAccountCount"
 import Container from "~/components/Container"
-import {NodeListView} from "~/components/App/content/NodeListView";
+import {NodeListView} from "~/components/App/content/NodeListView"
 
 export const NotConnectedContent = () => {
     const count = useAccountCount()

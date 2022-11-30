@@ -5,7 +5,7 @@ import {useForm} from "react-hook-form"
 import {toast} from "react-toastify"
 import {createSubnet} from "~/lib/aptos"
 import {useAptos} from "~/hooks/useAptos"
-import {useSWRConfig} from "swr";
+import {useSWRConfig} from "swr"
 
 type FormData = {
     subnet: number
@@ -15,7 +15,7 @@ const CreateSubnetRaw = ({open, setOpen}: DialogProps) => {
     const [loading, setLoading] = useState(false)
     const {account} = useAptos()
     const { mutate } = useSWRConfig()
-    const { register, handleSubmit, watch, formState: { errors }, reset } = useForm<FormData>()
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>()
 
     const onSubmit = handleSubmit(async data => {
         setLoading(true)

@@ -12,7 +12,7 @@ type FormData = {
 }
 
 const CreateAccountRaw = ({open, setOpen}: DialogProps) => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm<FormData>()
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
     const {account} = useAptos()
     const { mutate } = useSWRConfig()
     const [loading, setLoading] = useState(false)

@@ -1,11 +1,11 @@
-import {memo, useCallback} from "react";
-import {useNodes} from "~/hooks/useNodes";
-import {fromHex} from "~/lib/aptos";
-import {useAptos} from "~/hooks/useAptos";
-import {NodeEditView} from "~/components/App/content/NodeEditView";
-import {toast} from "react-toastify";
-import {UsersIcon} from "@heroicons/react/24/solid";
-import {GlobeAltIcon} from "@heroicons/react/24/outline";
+import {memo, useCallback} from "react"
+import {useNodes} from "~/hooks/useNodes"
+import {fromHex} from "~/lib/aptos"
+import {useAptos} from "~/hooks/useAptos"
+import {NodeEditView} from "~/components/App/content/NodeEditView"
+import {toast} from "react-toastify"
+import {UsersIcon} from "@heroicons/react/24/solid"
+import {GlobeAltIcon} from "@heroicons/react/24/outline"
 
 
 const NodeListViewRaw = () => {
