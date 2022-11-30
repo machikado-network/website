@@ -1,9 +1,9 @@
 import Container from "~/components/Container"
 import {useCallback, useState} from "react"
-import {sendInvite} from "~/lib/aptos";
-import {useAptos} from "~/hooks/useAptos";
-import type {WalletAddress} from "~/lib/aptos/browser";
-import {Button, LargeButton} from "~/components/Button";
+import {sendInvite} from "~/lib/aptos"
+import {useAptos} from "~/hooks/useAptos"
+import type {WalletAddress} from "~/lib/aptos/browser"
+import {LargeButton} from "~/components/Button"
 
 const SendInvite = () => {
     const {account} = useAptos()

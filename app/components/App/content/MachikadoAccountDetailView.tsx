@@ -3,8 +3,8 @@ import {useAptos} from "~/hooks/useAptos"
 import Container from "~/components/Container"
 import {fromHex} from "~/lib/aptos"
 import { NotHavingMachikadoAccountView } from "./NotHavingMachikadoAccountView"
-import {useState} from "react";
-import {CreateSubnet} from "~/components/App/Dialog/CreateSubnet";
+import {useState} from "react"
+import {CreateSubnet} from "~/components/App/Dialog/CreateSubnet"
 
 
 const MachikadoAccountDetail = () => {

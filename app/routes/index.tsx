@@ -1,5 +1,5 @@
 import {Button} from "~/components/Button"
-import {useAccountCount} from "~/hooks/useAccountCount";
+import {useAccountCount} from "~/hooks/useAccountCount"
 
 function Header() {
     return <header className="relative z-50 pb-11 lg:pt-11">

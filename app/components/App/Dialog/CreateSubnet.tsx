@@ -1,10 +1,10 @@
-import type {DialogProps} from "~/components/App/Dialog/index";
-import {memo, useState} from "react";
-import {Dialog} from "~/components/App/Dialog/index";
-import {useForm} from "react-hook-form";
-import {toast} from "react-toastify";
-import {createSubnet} from "~/lib/aptos";
-import {useAptos} from "~/hooks/useAptos";
+import type {DialogProps} from "~/components/App/Dialog/index"
+import {memo, useState} from "react"
+import {Dialog} from "~/components/App/Dialog/index"
+import {useForm} from "react-hook-form"
+import {toast} from "react-toastify"
+import {createSubnet} from "~/lib/aptos"
+import {useAptos} from "~/hooks/useAptos"
 
 type FormData = {
     subnet: number

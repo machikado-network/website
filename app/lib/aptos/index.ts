@@ -1,6 +1,6 @@
 import {AptosClient} from 'aptos'
 import type {MachikadoAccount} from "~/lib/aptos/MachikadoNetwork"
-import {WalletAddress, WalletTransactionPayload} from "~/lib/aptos/browser";
+import type {WalletAddress, WalletTransactionPayload} from "~/lib/aptos/browser"
 
 export const client = new AptosClient('https://fullnode.testnet.aptoslabs.com/v1')
 

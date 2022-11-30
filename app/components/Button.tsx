@@ -1,5 +1,5 @@
 import type {ReactNode} from "react"
-import {memo} from "react";
+import {memo} from "react"
 
 export type ButtonProps = {
     href?: string

@@ -9,7 +9,8 @@
     "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
     "predev:css-once": "tailwindcss -i ./styles/app.css -o app/styles/app.css",
     "dev": "npm run predev:css-once && remix build && run-p \"dev:*\"",
-    "start": "cross-env NODE_ENV=production npm run dev:wrangler"
+    "start": "cross-env NODE_ENV=production npm run dev:wrangler",
+    "lint": "eslint app --fix"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.4",

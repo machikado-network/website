@@ -1,12 +1,11 @@
 import {useEffect, useReducer} from "react"
 import {AptosContext, aptosDefaultState, aptosReducer} from "~/lib/context"
-import {SolidWalletConnectButton, WalletConnectButton} from "~/components/App/WalletConnectButton"
+import {WalletConnectButton} from "~/components/App/WalletConnectButton"
 import {useAptos} from "~/hooks/useAptos"
-import {useAccountCount} from "~/hooks/useAccountCount";
-import {NotConnectedContent} from "~/components/App/content/NotConnectedContent";
-import {MachikadoAccountDetailView} from "~/components/App/content/MachikadoAccountDetailView";
-import {MachikadoAccountAddress} from "~/lib/aptos";
-import {AdminView} from "~/components/App/content/AdminView";
+import {NotConnectedContent} from "~/components/App/content/NotConnectedContent"
+import {MachikadoAccountDetailView} from "~/components/App/content/MachikadoAccountDetailView"
+import {MachikadoAccountAddress} from "~/lib/aptos"
+import {AdminView} from "~/components/App/content/AdminView"
 
 function Header() {
     return <header className="relative mb-20 lg:pt-6">

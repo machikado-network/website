@@ -1,9 +1,9 @@
-import type {AptosContextState} from "~/lib/context";
-import {useInvite} from "~/hooks/useInvite";
-import {memo, useState} from "react";
-import Container from "~/components/Container";
-import {CreateAccount} from "~/components/App/Dialog/CreateAccount";
-import {PlusIcon} from "@heroicons/react/24/outline";
+import type {AptosContextState} from "~/lib/context"
+import {useInvite} from "~/hooks/useInvite"
+import {memo, useState} from "react"
+import Container from "~/components/Container"
+import {CreateAccount} from "~/components/App/Dialog/CreateAccount"
+import {PlusIcon} from "@heroicons/react/24/outline"
 
 const NotHavingMachikadoAccountViewRaw = ({account}: {account: AptosContextState}) => {
     const {invite} = useInvite(account.connected ? account.address : undefined)

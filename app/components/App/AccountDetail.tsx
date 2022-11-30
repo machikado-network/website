@@ -1,8 +1,8 @@
 import {Fragment, memo} from "react"
 import { Transition, Dialog } from "@headlessui/react"
 import {useAptos} from "~/hooks/useAptos"
-import Container from "~/components/Container";
-import {MachikadoAccountAddress} from "~/lib/aptos";
+import Container from "~/components/Container"
+import {MachikadoAccountAddress} from "~/lib/aptos"
 
 const AccountDetailContent = () => {
     const {account, disconnect} = useAptos()
